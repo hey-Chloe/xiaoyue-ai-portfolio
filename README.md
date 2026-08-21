@@ -1,127 +1,58 @@
-# Next.js Creative Portfolio Tutorial: Build Amazing Portfolio Website with Next.js, Three.js, and Tailwind CSS 🔥
+# 小悦 · AI Systems Portfolio
 
-![GitHub stars](https://img.shields.io/github/stars/codebucks27/Next.js-Creative-Portfolio-Website?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/codebucks27/Next.js-Creative-Portfolio-Website?style=social&logo=KashFlow&maxAge=3600)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/codebucks27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+小悦的个人 AI 工程作品集。网站不是纵向堆叠的简历页，而是一组可以主动选择、拖动和用键盘切换的项目卡片。
 
-This repository contains **final code** for Next.js Creative Portfolio website built using Next.js and Three.js. <br />
+## 网站定位
 
-For Demo checkout following link👇: <br />
-[Nextjs Creative Portfolio Website Demo](https://next-js-creative-portfolio-website.vercel.app/) <br />
+- AI Systems Builder / AI 应用开发与 Agent 工程
+- 重点方向：Agent Runtime、Enterprise RAG、AI Infrastructure
+- 中文优先，英文只作为技术标签和辅助信息
+- 所有项目结果都注明验证口径；私有项目不会伪造公开仓库链接
+- 当前版本不包含视频，视频素材由本人后续制作
 
----
-✨ Checkout my brand new Saas application -> [AI Headshot Generator](https://www.smartheadshots.ai)
+## 精选项目
 
----
+1. Enterprise Agentic RAG
+2. ReminderCat
+3. MiniClaudeCode
+4. KAI CloudPay
+5. OKR Agent Platform
+6. Research & Security Labs
 
-Starter Code Files👇: <br />
-➡ Link 💚: [Nextjs Creative Portfolio Website Starter Code](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files) <br />
-<!--- ➡ Link 2💚(If you want to support): [Nextjs Creative Portfolio Website Final Code](https://codebucks.gumroad.com/l/ypzlu) <br /> --->
+## 本地运行
 
-If you want to learn how to create it please follow below tutorial👇: <br />
-➡ Tutorial Link 💚: [Personal Portfolio Website with Next.js, Three.js & Tailwind CSS Tutorial](https://youtu.be/T5t46vuW8fo) 
-[![YouTube Video Views](https://img.shields.io/youtube/views/T5t46vuW8fo
-)](https://youtu.be/T5t46vuW8fo) <br />
-
-💚 Checkout my personal website [DevDreaming](https://devdreaming.com) <br />
-
----
-# ⭐DO NOT FORGET TO STAR THIS REPO⭐
----
-
-## Images of The Portfolio Website:
-
-#### Home
-![Nextjs Creative Portfolio Website](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Home-desktop.png)
-
-#### About
-![Nextjs Creative Portfolio Website About Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/About-desktop-full.png)
-
-#### Projects
-![Next.js Creative Portfolio Website Projects Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Projects-desktop.png)
-
-#### Contact
-![Next.js Creative Portfolio Website Contact Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Contact-desktop.png)
-
-#### Mobile Version
-![Next.js Creative Portfolio Website Contact Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Home-mobile.png)
-![Next.js Creative Portfolio Website Contact Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/About-mobile.png)
-![Next.js Creative Portfolio Website Contact Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Projects-mobile.png)
-![Next.js Creative Portfolio Website Contact Page](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Contact-mobile.png)
-
-## Resources Used in This Project
-
-#### 3D Models
-
-- ["Tim Mckee - Boy Wizard"](https://skfb.ly/6YATu) by [elbertwithane is licensed under Creative Commons Attribution ](http://creativecommons.org/licenses/by/4.0/).
-- ["Stylized wizard hat"](https://skfb.ly/ozxOQ) by [Enkarra is licensed under Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
-- ["Wizard Staff"](https://skfb.ly/6QYZw) by [Toymancer Studio is licensed under Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
-
-#### AI Images
-
-- Created with the help of [Playground AI](https://playgroundai.com/)
-
-#### Github Stats & Details
-
-- [Github ReadMe Stats](https://github.com/anuraghazra/github-readme-stats)
-- [Skills Icons](https://github.com/tandpfun/skill-icons)
-- [Github Readme Streak Stats](https://github.com/denvercoder1/github-readme-streak-stats)
-
-#### Development Resources
-
-- Fonts from [Google Fonts](https://fonts.google.com/) <br />
-- Icons from [Lucide Icons](https://lucide.dev/) <br />
-- Notifications from [Sonner](https://sonner.emilkowal.ski/) <br />
-- Form created using [react-hook-form](https://react-hook-form.com/) <br />
-- Animations using [framer-motion](https://www.framer.com/motion/) <br />
-- Emails using [Emailjs](https://www.emailjs.com/) <br />
-- Convert 3d models to JSX using [Gltf JSX](https://github.com/pmndrs/gltfjsx)
-
-#### Audio 
-
-- Music by <a href="https://pixabay.com/users/shidenbeatsmusic-25676252/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=20772">Shiden Beats Music</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=20772">Pixabay</a>
-
----
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-This repo now uses [**Bun**](https://bun.sh/) as the package manager. Install Bun, then:
+需要 Node.js 22.18 或更高版本，推荐 Node.js 24。
 
 ```bash
-bun install   # install all dependencies
-bun dev       # start the dev server
+npm ci
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000)。
 
-## 2026 Dependency Upgrade
-
-The project has been refreshed to run on the latest stable versions of every major dependency. Headline changes:
-
-- **Next.js** `14.2` → `16.2` (Turbopack builds, removal of `next lint` — replaced with `eslint .`)
-- **React / React DOM** `18` → `19`
-- **Tailwind CSS** `3` → `4` (new `@tailwindcss/postcss` plugin, `@import "tailwindcss"` + `@config` directive in `globals.css` to keep the existing JS config)
-- **@react-three/fiber** `8` → `9` and **@react-three/drei** `9` → `10` (React 19 compatible)
-- **framer-motion** `11` → `12`, **three** `0.162` → `0.184`, **sonner** `1` → `2`, **@emailjs/browser** `4.2` → `4.4`, **react-hook-form**, **lucide-react**, **sharp** all bumped to latest
-- **ESLint** `8` → `9` with flat config (`eslint.config.mjs`) and `eslint-config-next` `16`
-- **Package manager**: switched from npm to **Bun** — `package-lock.json` removed, `bun.lock` checked in
-
-### Code changes required by the upgrade
-
-- Next.js 15+ disallows `dynamic(..., { ssr: false })` inside Server Components, so the three model imports (`Wizard`, `HatModel`, `Staff`) are now wrapped in tiny `*Client.jsx` files marked `"use client"`.
-- `globals.css` switched from `@tailwind base/components/utilities` to `@import "tailwindcss"` + `@config "../../tailwind.config.js"` (legacy JS config kept as-is via the v4 `@config` directive).
-- `postcss.config.js` now uses `@tailwindcss/postcss` instead of the `tailwindcss` PostCSS plugin.
-- `.eslintrc.json` replaced with `eslint.config.mjs` (flat config) using `eslint-config-next/core-web-vitals`.
-- `package.json` `lint` script changed from `next lint` to `eslint .`.
-
-### Want the original tutorial code?
-
-The pre-upgrade version (Next.js 14, React 18, Tailwind 3, npm) is preserved in git history. To check it out locally:
+生产验证：
 
 ```bash
-git checkout 3b313c4   # last commit before the upgrade
+npm run lint
+npm run build
+npm start
 ```
 
-Or browse it on GitHub: [commit 3b313c4](https://github.com/codebucks27/Next.js-Creative-Portfolio-Website/tree/3b313c484d2bdf853c8db72a2ba54995b50faf46).
+## 技术栈
+
+Next.js 16、React 19、Tailwind CSS 4、Framer Motion、Three.js、React Three Fiber。
+
+## 联系方式
+
+- Email: [xiaoyue0227@yeah.net](mailto:xiaoyue0227@yeah.net)
+- GitHub: [hey-Chloe](https://github.com/hey-Chloe)
+
+## 模板与 3D 资源致谢
+
+本网站基于 [CodeBucks Creative Portfolio](https://github.com/codebucks27/Next.js-Creative-Portfolio-Website) 改造，原项目的 MIT 许可保留在 [LICENSE.md](./LICENSE.md)。
+
+3D 模型沿用模板资源并保留原始署名：
+
+- [Tim Mckee - Boy Wizard](https://skfb.ly/6YATu)，作者 elbertwithane，使用 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
+- [Stylized wizard hat](https://skfb.ly/ozxOQ)，作者 Enkarra，使用 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
+- [Wizard Staff](https://skfb.ly/6QYZw)，作者 Toymancer Studio，使用 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)

@@ -1,35 +1,44 @@
 "use client";
-import { motion } from "framer-motion";
-import { Home } from "lucide-react";
+
+import { Home, Palette, Phone, User } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const NavLink = motion(Link);
+const links = [
+  { href: "/", label: "首页", Icon: Home },
+  { href: "/about", label: "关于", Icon: User },
+  { href: "/projects", label: "项目", Icon: Palette },
+  { href: "/contact", label: "联系", Icon: Phone },
+];
+
 const HomeBtn = () => {
+  const pathname = usePathname();
+
   return (
-    <NavLink
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ delay: 1 }}
-      href={"/"}
-      target={"_self"}
-      className="text-foreground  rounded-full flex items-center justify-center
-        custom-bg fixed top-4 left-4 w-fit self-start z-50
-        "
-      aria-label={"home"}
-      name={"home"}
-      prefetch={false}
+    <nav
+      aria-label="页面导航"
+      className="custom-bg fixed left-1/2 top-3 z-50 flex -translate-x-1/2 items-center gap-1 rounded-full p-1.5"
     >
-      <span className="relative  w-14 h-14 p-4  hover:text-accent">
-        <Home className="w-full h-auto" strokeWidth={1.5} />
+      {links.map(({ href, label, Icon }) => {
+        const active = pathname === href;
 
-        <span className="peer bg-transparent absolute top-0 left-0 w-full h-full" />
-
-        <span className="absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap">
-          Home
-        </span>
-      </span>
-      <span className="sr-only">Go to Home Page</span>
-    </NavLink>
+        return (
+          <Link
+            key={href}
+            href={href}
+            aria-current={active ? "page" : undefined}
+            className={
+              active
+                ? "flex min-h-10 items-center gap-2 rounded-full bg-foreground px-3 text-[10px] font-medium text-background"
+                : "flex min-h-10 items-center gap-2 rounded-full px-3 text-[10px] text-foreground/50 transition hover:bg-white/5 hover:text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+            }
+          >
+            <Icon className="h-3.5 w-3.5" strokeWidth={1.6} />
+            <span className="hidden xs:inline">{label}</span>
+          </Link>
+        );
+      })}
+    </nav>
   );
 };
 

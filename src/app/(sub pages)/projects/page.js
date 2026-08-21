@@ -6,7 +6,8 @@ import RenderModel from "@/components/RenderModel";
 import Staff from "@/components/models/StaffClient";
 
 export const metadata = {
-  title: "Projects",
+  title: "项目",
+  description: "小悦的 AI Agent、RAG、交易基础设施和安全执行项目。",
 };
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
     <>
       <Image
         src={bg}
-        alt="Next.js Portfolio website's about page background image"
+        alt=""
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
         priority
         sizes="100vw"
