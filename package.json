@@ -8,9 +8,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "opennextjs-cloudflare build --skipWranglerConfigCheck && node scripts/stage-sites-build.mjs",
-    "build:next": "next build",
-    "start": "next start",
+    "build": "next build && node scripts/stage-sites-build.mjs",
+    "start": "node scripts/serve-static.mjs",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -26,14 +25,11 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.2",
     "@tailwindcss/postcss": "^4.2.4",
     "autoprefixer": "^10.5.0",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.4",
     "postcss": "^8.5.10",
-    "rclone.js": "^0.6.6",
-    "tailwindcss": "^4.2.4",
-    "wrangler": "^4.125.0"
+    "tailwindcss": "^4.2.4"
   }
 }
