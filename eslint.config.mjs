@@ -3,12 +3,14 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
-  {
-    rules: {
-      "react-hooks/set-state-in-effect": "warn",
-    },
-  },
+  globalIgnores([
+    ".next/**",
+    ".open-next/**",
+    "dist/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
 ]);
 
 export default eslintConfig;
