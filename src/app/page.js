@@ -1,8 +1,7 @@
 import Image from "next/image";
 import bg from "../../public/background/home-background.png";
-import RenderModel from "@/components/RenderModel";
 import Navigation from "@/components/navigation";
-import Wizard from "@/components/models/WizardClient";
+import XiaoyueWitch from "@/components/models/XiaoyueWitch";
 
 export default function Home() {
   return (
@@ -17,10 +16,10 @@ export default function Home() {
       />
 
       <div className="w-full h-screen">
-        <Navigation />
-        <RenderModel>
-          <Wizard />
-        </RenderModel>
+        <div className="relative z-30">
+          <Navigation />
+        </div>
+        <XiaoyueWitch />
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-8 z-10 px-6 text-center sm:bottom-10">
