@@ -1,4 +1,4 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 
 const projectRoot = process.cwd();
@@ -7,10 +7,12 @@ const distDir = path.join(projectRoot, "dist");
 const serverDir = path.join(distDir, "server");
 
 await rm(distDir, { recursive: true, force: true });
-await cp(openNextDir, distDir, { recursive: true });
 await mkdir(serverDir, { recursive: true });
-await writeFile(
-  path.join(serverDir, "index.js"),
-  'export { default } from "../worker.js";\n',
-  "utf8"
+await cp(openNextDir, serverDir, { recursive: true });
+await cp(
+  path.join(openNextDir, "worker.js"),
+  path.join(serverDir, "index.js")
 );
+await cp(path.join(openNextDir, "assets"), path.join(distDir, "assets"), {
+  recursive: true,
+});
