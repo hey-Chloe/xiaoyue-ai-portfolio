@@ -1,129 +1,83 @@
-"use client";
+import Link from "next/link";
+import { ArrowUpRight, Github, Mail } from "lucide-react";
+import ItemLayout from "./ItemLayout";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Blocks, CheckCircle2, Route } from "lucide-react";
-import { useState } from "react";
-
-const panels = [
-  {
-    id: "capability",
-    label: "能力",
-    Icon: Blocks,
-    eyebrow: "WHAT I BUILD",
-    title: "把 Agent 做成系统，而不是聊天界面。",
-    description:
-      "从模型调用继续向下：知识检索、工具协议、上下文预算、失败恢复、权限与审计，都要成为可以验证的工程边界。",
-    items: [
-      ["Agent Runtime", "有界循环、工具调用、检查点、恢复与执行追踪"],
-      ["Enterprise RAG", "混合检索、重排、页级证据、ACL 与离线评测"],
-      ["AI Infrastructure", "身份、交易状态机、幂等、账本与后台治理"],
-    ],
-  },
-  {
-    id: "method",
-    label: "方法",
-    Icon: Route,
-    eyebrow: "HOW I WORK",
-    title: "先定义可靠性，再追求“聪明感”。",
-    description:
-      "我先确认目标、权限、数据来源与失败路径，再选择模型和框架。模型不确定，但系统的边界、证据和回滚路径必须确定。",
-    items: [
-      ["01 · Scope", "把业务目标翻译成可验证的系统行为"],
-      ["02 · Build", "让领域规则只有一个来源，让工具副作用可控"],
-      ["03 · Evaluate", "用离线样本、轨迹和失败分类持续定位退化"],
-    ],
-  },
-  {
-    id: "evidence",
-    label: "成果",
-    Icon: CheckCircle2,
-    eyebrow: "PROOF, NOT HYPE",
-    title: "只展示能解释口径的结果。",
-    description:
-      "公开项目给出仓库，性能数字注明样本与环境；私有项目只说明实现范围。没有验证的数据，不拿来装饰简历。",
-    items: [
-      ["97.92%", "企业 RAG 在 240 条 CPU 分层样本中的 Top-10 文档召回"],
-      ["26 / 26", "Coding Agent Runtime 离线确定性夹具验证"],
-      ["E2E", "ReminderCat 完成企业微信真机端到端验收并部署"],
-    ],
-  },
-];
+const SkillCard = ({ title, children }) => (
+  <ItemLayout className="col-span-full flex-col items-start sm:col-span-6 lg:col-span-4">
+    <p className="text-lg font-semibold text-accent">{title}</p>
+    <p className="text-xs leading-6 text-foreground/70 sm:text-sm">{children}</p>
+  </ItemLayout>
+);
 
 const AboutDetails = () => {
-  const [activeId, setActiveId] = useState("capability");
-  const reduceMotion = useReducedMotion();
-  const active = panels.find((panel) => panel.id === activeId) ?? panels[0];
-
   return (
-    <div className="w-full">
-      <div
-        role="tablist"
-        aria-label="关于小悦"
-        className="mb-4 flex gap-2"
-      >
-        {panels.map(({ id, label, Icon }) => {
-          const selected = id === activeId;
+    <section className="w-full py-20">
+      <div className="grid w-full grid-cols-12 gap-4 xs:gap-6 md:gap-8">
+        <ItemLayout className="col-span-full row-span-2 flex-col items-start lg:col-span-8">
+          <p className="text-xs tracking-[0.2em] text-accent">FROM DEMO TO SYSTEM</p>
+          <h2 className="w-full text-left text-xl md:text-2xl">
+            从 Demo 到真实系统
+          </h2>
+          <p className="text-xs font-light leading-6 sm:text-sm md:text-base md:leading-8">
+            我关注的不只是模型能否回答，而是系统能否在真实权限、数据和失败边界中可靠运行。工作覆盖 Agent Runtime、企业级 RAG、工具调用、评测、权限治理与交易基础设施。
+          </p>
+        </ItemLayout>
 
-          return (
-            <button
-              key={id}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              onClick={() => setActiveId(id)}
-              className={
-                selected
-                  ? "flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl bg-foreground px-4 text-xs font-medium text-background"
-                  : "flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-background/30 px-4 text-xs text-foreground/50 backdrop-blur-md transition hover:text-foreground"
-              }
-            >
-              <Icon className="h-4 w-4" strokeWidth={1.5} />
-              {label}
-            </button>
-          );
-        })}
-      </div>
+        <ItemLayout className="col-span-full flex-col items-start text-accent xs:col-span-6 lg:col-span-4">
+          <p className="w-full text-left text-3xl font-semibold sm:text-5xl">97.92%</p>
+          <p className="text-xs leading-5 text-foreground/65">
+            Enterprise RAG · 240 条 CPU 分层样本中的 Fusion Top-10 文档召回率
+          </p>
+        </ItemLayout>
 
-      <div className="relative min-h-[28rem]">
-        <div
-          aria-hidden="true"
-          className="absolute inset-3 translate-x-3 translate-y-3 rounded-[2rem] border border-white/[0.06] bg-background/30"
-        />
-        <AnimatePresence mode="wait">
-          <motion.article
-            key={active.id}
-            role="tabpanel"
-            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 28, rotate: 0.5 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
-            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -20, rotate: -0.4 }}
-            transition={{ duration: reduceMotion ? 0.01 : 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="project-card relative flex min-h-[28rem] flex-col rounded-[2rem] p-6 sm:p-8"
+        <ItemLayout className="col-span-full flex-col items-start text-accent xs:col-span-6 lg:col-span-4">
+          <p className="w-full text-left text-3xl font-semibold sm:text-5xl">E2E</p>
+          <p className="text-xs leading-5 text-foreground/65">
+            ReminderCat 已完成企业微信手机端真实提醒验收并部署
+          </p>
+        </ItemLayout>
+
+        <SkillCard title="Agent Runtime">
+          有界循环、Tool Calling、权限策略、Checkpoint、会话恢复与执行 Trace。
+        </SkillCard>
+        <SkillCard title="Enterprise RAG">
+          Dense + BM25、RRF、Reranker、ACL、页级引用与离线评测。
+        </SkillCard>
+        <SkillCard title="AI Infrastructure">
+          OIDC、RBAC / ABAC、幂等、状态机、交易履约与账本边界。
+        </SkillCard>
+
+        <ItemLayout className="col-span-full flex-col items-start md:col-span-8">
+          <p className="text-xs tracking-[0.2em] text-accent">HOW I BUILD</p>
+          <h3 className="text-xl font-semibold">先定义可靠性，再追求聪明感。</h3>
+          <p className="text-xs leading-6 text-foreground/70 sm:text-sm">
+            先确认目标、权限、数据来源与失败路径，再选择模型和框架。模型可以不确定，但证据、审计和恢复路径必须明确。
+          </p>
+        </ItemLayout>
+
+        <ItemLayout className="col-span-full flex-col items-start md:col-span-4">
+          <div className="flex w-full items-center justify-between">
+            <Github className="h-7 w-7 text-accent" strokeWidth={1.5} />
+            <ArrowUpRight className="h-5 w-5 text-muted" />
+          </div>
+          <Link
+            href="https://github.com/hey-Chloe"
+            target="_blank"
+            rel="noreferrer"
+            className="text-lg hover:text-accent"
           >
-            <div className="aurora-orb -right-24 -top-24" aria-hidden="true" />
-            <p className="relative font-mono text-[10px] tracking-[0.25em] text-accent">
-              {active.eyebrow}
-            </p>
-            <h2 className="relative mt-5 max-w-xl text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
-              {active.title}
-            </h2>
-            <p className="relative mt-4 max-w-xl text-sm leading-7 text-foreground/65">
-              {active.description}
-            </p>
-
-            <div className="relative mt-auto grid gap-3 pt-7 sm:grid-cols-3">
-              {active.items.map(([label, copy]) => (
-                <div key={label} className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4">
-                  <p className="font-mono text-[10px] text-accent">{label}</p>
-                  <p className="mt-3 text-[11px] leading-5 text-foreground/58">
-                    {copy}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </motion.article>
-        </AnimatePresence>
+            github.com/hey-Chloe
+          </Link>
+          <Link
+            href="mailto:xiaoyue0227@yeah.net"
+            className="flex items-center gap-2 break-all text-xs text-foreground/65 hover:text-accent"
+          >
+            <Mail className="h-4 w-4 shrink-0" />
+            xiaoyue0227@yeah.net
+          </Link>
+        </ItemLayout>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,11 +5,11 @@ import AboutDetails from "@/components/about";
 import HatModel from "@/components/models/HatModelClient";
 
 export const metadata = {
-  title: "关于我",
-  description: "认识小悦：专注 Agent Runtime、企业 RAG、评测与真实业务系统的 AI 应用开发者。",
+  title: "关于小悦",
+  description: "小悦的 AI 应用开发、Agent Runtime、企业 RAG 与 AI 基础设施能力。",
 };
 
-export default function About() {
+export default function Home() {
   return (
     <>
       <Image
@@ -17,41 +17,27 @@ export default function About() {
         priority
         sizes="100vw"
         alt=""
-        className="fixed inset-0 -z-50 h-full w-full object-cover object-center opacity-25"
+        className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
       />
 
-      <div className="pointer-events-none fixed inset-0 -z-10 hidden opacity-45 lg:block">
+      <div className="w-full h-3/5 xs:h-3/4 sm:h-screen absolute top-1/2 -translate-y-1/2 left-0 z-10">
         <RenderModel>
           <HatModel />
         </RenderModel>
       </div>
 
-      <section className="relative z-20 mx-auto grid min-h-[calc(100dvh-10rem)] w-full max-w-7xl items-center gap-8 lg:grid-cols-[0.72fr_1.28fr]">
-        <header className="max-w-xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-            ABOUT / 小悦
-          </p>
-          <h1 className="mt-4 text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-7xl">
-            我关心的不是 AI 会不会说，
-            <span className="text-foreground/38">而是它能不能把事情做完。</span>
+      <div className="relative w-full h-screen flex flex-col items-center justify-center">
+        <div className="absolute flex flex-col items-center text-center top-1/2 sm:top-[60%] left-1/2 -translate-y-1/2 -translate-x-1/2">
+          <h1 className="font-bold  text-6xl xs:text-7xl sm:text-8xl  lg:text-9xl text-accent">
+            小悦
           </h1>
-          <p className="mt-6 max-w-md text-sm leading-7 text-foreground/60">
-            AI 应用开发与 Agent 工程。关注 Runtime、企业知识检索、工具调用、评测、安全执行，以及系统进入真实流程后必须面对的权限与失败。
+          <p className="font-light text-foreground text-lg">
+            AI 应用开发 · Agent 工程
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {["Agent Runtime", "Enterprise RAG", "AI Infrastructure"].map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/10 bg-background/30 px-3 py-2 font-mono text-[9px] text-foreground/50 backdrop-blur-md"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </header>
+        </div>
+      </div>
 
-        <AboutDetails />
-      </section>
+      <AboutDetails />
     </>
   );
 }

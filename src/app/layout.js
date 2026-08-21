@@ -1,9 +1,10 @@
 import "./globals.css";
 import FireFliesBackground from "@/components/FireFliesBackground";
+import Sound from "@/components/Sound";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://xiaoyue-ai-systems.itankg64.chatgpt.site";
+  "https://hey-chloe.github.io/xiaoyue-ai-portfolio";
 const canonicalUrl = new URL(`${siteUrl.replace(/\/$/, "")}/`);
 
 export const metadata = {
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
       <body className="bg-background text-foreground font-inter">
         {children}
         <FireFliesBackground />
+        <Sound />
         <div id="my-modal" />
       </body>
     </html>

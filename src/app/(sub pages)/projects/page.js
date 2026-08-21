@@ -7,7 +7,7 @@ import Staff from "@/components/models/StaffClient";
 
 export const metadata = {
   title: "项目",
-  description: "小悦的 AI Agent、RAG、交易基础设施和安全执行项目。",
+  description: "小悦的 Agent、企业 RAG、AI 基础设施与研究项目。",
 };
 
 export default function Home() {

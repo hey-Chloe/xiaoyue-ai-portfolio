@@ -1,101 +1,89 @@
 "use client";
-
 import { BtnList } from "@/app/data";
-import { Github, Home, Mail, Palette, Phone, User } from "lucide-react";
-import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import React from "react";
 import NavButton from "./NavButton";
 import useScreenSize from "../hooks/useScreenSize";
-
-const iconMap = {
-  home: Home,
-  about: User,
-  projects: Palette,
-  contact: Phone,
-  github: Github,
-  mail: Mail,
-};
+import ResponsiveComponent from "../ResponsiveComponent";
+import { motion } from "framer-motion";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.12 },
+    transition: {
+      staggerChildren: 0.3,
+    },
   },
 };
 
 const Navigation = () => {
-  const size = useScreenSize();
-  const reduceMotion = useReducedMotion();
-  const viewport = size ?? 1024;
-  const isDesktopOrbit = viewport >= 480;
   const angleIncrement = 360 / BtnList.length;
-  const isLarge = viewport >= 1024;
-  const isMedium = viewport >= 768;
-
-  if (!isDesktopOrbit) {
-    return (
-      <nav
-        aria-label="主导航"
-        className="custom-bg fixed inset-x-3 bottom-3 z-50 flex items-stretch justify-around rounded-[1.6rem] p-2 sm:hidden"
-      >
-        {BtnList.slice(0, 5).map((item) => {
-          const Icon = iconMap[item.icon] ?? Home;
-
-          return (
-            <Link
-              key={item.label}
-              href={item.link}
-              target={item.newTab ? "_blank" : undefined}
-              rel={item.newTab ? "noreferrer" : undefined}
-              className="flex min-w-14 flex-col items-center gap-1 rounded-2xl px-2 py-2 text-foreground/60 transition hover:bg-white/5 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              <Icon className="h-4 w-4" strokeWidth={1.5} />
-              <span className="text-[9px]">{item.label}</span>
-            </Link>
-          );
-        })}
-      </nav>
-    );
-  }
+  const size = useScreenSize();
+  const isLarge = size >= 1024;
+  const isMedium = size >= 768;
 
   return (
-    <nav
-      aria-label="主导航"
-      className="pointer-events-none fixed inset-0 z-20 flex items-center justify-center"
-    >
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className={
-          reduceMotion
-            ? "relative flex w-max items-center justify-center"
-            : "group relative flex w-max animate-spin-slow items-center justify-center hover:pause"
-        }
-      >
-        {BtnList.map((btn, index) => {
-          const angleRad = (index * angleIncrement * Math.PI) / 180;
-          const radius = isLarge
-            ? "calc(20vw - 1rem)"
-            : isMedium
-              ? "calc(30vw - 1rem)"
-              : "calc(40vw - 1rem)";
-          const x = `calc(${radius} * ${Math.cos(angleRad)})`;
-          const y = `calc(${radius} * ${Math.sin(angleRad)})`;
+    <div className="w-full fixed h-screen flex items-center justify-center">
+      <ResponsiveComponent>
+        {({ size }) => {
+          return size && size >= 480 ? (
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="w-max flex items-center justify-center relative hover:pause animate-spin-slow group"
+            >
+              {BtnList.map((btn, index) => {
+                const angleRad = (index * angleIncrement * Math.PI) / 180;
+                const radius = isLarge
+                  ? "calc(20vw - 1rem)"
+                  : isMedium
+                  ? "calc(30vw - 1rem)"
+                  : "calc(40vw - 1rem)";
+                const x = `calc(${radius}*${Math.cos(angleRad)})`;
+                const y = `calc(${radius}*${Math.sin(angleRad)})`;
 
-          return (
-            <NavButton
-              key={btn.label}
-              x={x}
-              y={y}
-              reduceMotion={reduceMotion}
-              {...btn}
-            />
+                return <NavButton key={btn.label} x={x} y={y} {...btn} />;
+              })}
+            </motion.div>
+          ) : (
+            <>
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 item-start xs:items-center justify-center relative  group xs:hidden"
+              >
+                {BtnList.slice(0, BtnList.length / 2).map((btn) => {
+                  return <NavButton key={btn.label} x={0} y={0} {...btn} />;
+                })}
+              </motion.div>
+
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center justify-center relative group xs:hidden"
+              >
+                {BtnList.slice(BtnList.length / 2, BtnList.length).map(
+                  (btn) => {
+                    return (
+                      <NavButton
+                        key={btn.label}
+                        x={0}
+                        y={0}
+                        {...btn}
+                        labelDirection="left"
+                      />
+                    );
+                  }
+                )}
+              </motion.div>
+            </>
           );
-        })}
-      </motion.div>
-    </nav>
+        }}
+      </ResponsiveComponent>
+    </div>
   );
 };
 
