@@ -1,0 +1,255 @@
+.hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #041316;
+  perspective: 1200px;
+}
+
+.scenePlane {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(103vw, 183.04vh);
+  height: max(57.96vw, 103vh);
+  translate: -50% -50%;
+  transform-origin: 58% 48%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.sceneImage,
+.spriteLayer img {
+  user-select: none;
+  object-fit: fill;
+}
+
+.spriteLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  will-change: transform;
+}
+
+.hairLayer {
+  clip-path: polygon(57% 19%, 67.5% 19%, 68% 50%, 64% 52%, 60% 45%, 57% 37%);
+  transform-origin: 63% 25%;
+}
+
+.cloakLayer {
+  clip-path: polygon(62% 31%, 76% 38%, 78% 74%, 70% 82%, 60% 73%);
+  transform-origin: 64% 43%;
+}
+
+.blink {
+  position: absolute;
+  left: 58.35%;
+  top: 24.75%;
+  z-index: 5;
+  display: flex;
+  width: 3.05%;
+  height: 1.5%;
+  justify-content: space-between;
+  rotate: 1deg;
+  animation: blink 6.8s linear infinite;
+  transform-origin: center;
+}
+
+.blink span {
+  width: 39%;
+  height: 72%;
+  border-radius: 55% 55% 45% 45%;
+  border-bottom: 1px solid rgb(54 35 23 / 88%);
+  background: linear-gradient(180deg, rgb(198 162 131 / 88%), rgb(167 126 98 / 88%));
+  box-shadow: 0 1px 2px rgb(34 22 18 / 32%);
+}
+
+.effects {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mushroomGlow {
+  transform-box: fill-box;
+  transform-origin: center;
+  mix-blend-mode: screen;
+  animation: mushroomBreath 4.8s ease-in-out infinite;
+}
+
+.waterRipple {
+  fill: none;
+  stroke: rgb(101 237 236 / 48%);
+  stroke-width: 1.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 4px rgb(41 210 221 / 58%));
+  animation: waterRipple 4.4s ease-out infinite;
+}
+
+.magicTrail {
+  fill: none;
+  stroke: url(#magic-line);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-dasharray: 4 10;
+  filter: url(#soft-glow);
+  opacity: 0.8;
+  animation: magicFlow 4s linear infinite;
+}
+
+.firefly {
+  position: absolute;
+  z-index: 6;
+  display: block;
+  border-radius: 999px;
+  background: #fff3a5;
+  box-shadow:
+    0 0 5px 2px rgb(255 219 92 / 78%),
+    0 0 14px 5px rgb(255 179 41 / 24%);
+  mix-blend-mode: screen;
+  animation-name: fireflyDrift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform, opacity;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  background:
+    linear-gradient(180deg, rgb(0 7 10 / 8%) 52%, rgb(0 5 7 / 43%) 100%),
+    radial-gradient(ellipse at 59% 44%, transparent 26%, rgb(0 7 9 / 8%) 58%, rgb(0 5 7 / 42%) 100%);
+}
+
+.depthLight {
+  position: absolute;
+  left: 48%;
+  top: 7%;
+  z-index: 8;
+  width: 29%;
+  height: 62%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(92 243 229 / 8%), transparent 68%);
+  filter: blur(24px);
+  mix-blend-mode: screen;
+  animation: depthPulse 6.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  91%,
+  94%,
+  96.5%,
+  100% {
+    opacity: 0;
+    transform: scaleY(0.05);
+  }
+  92.2%,
+  95.2% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes mushroomBreath {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.88);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes waterRipple {
+  0% {
+    opacity: 0;
+    transform: scale(0.42);
+  }
+  22% {
+    opacity: 0.64;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes magicFlow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+@keyframes fireflyDrift {
+  0% {
+    opacity: 0.18;
+    transform: translate3d(0, 0, 0) scale(0.72);
+  }
+  38% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0.32;
+    transform: translate3d(var(--fly-x), var(--fly-y), 0) scale(1.18);
+  }
+}
+
+@keyframes depthPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    scale: 0.96;
+  }
+  50% {
+    opacity: 0.82;
+    scale: 1.04;
+  }
+}
+
+@media (max-width: 640px) {
+  .scenePlane {
+    left: 62%;
+    translate: -62% -50%;
+  }
+
+  .vignette {
+    background:
+      linear-gradient(180deg, rgb(0 7 10 / 6%) 48%, rgb(0 5 7 / 58%) 100%),
+      radial-gradient(ellipse at 57% 40%, transparent 25%, rgb(0 5 7 / 34%) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink,
+  .mushroomGlow,
+  .waterRipple,
+  .magicTrail,
+  .firefly,
+  .depthLight {
+    animation: none;
+  }
+
+  .blink {
+    display: none;
+  }
+
+  .mushroomGlow {
+    opacity: 0.38;
+  }
+
+  .waterRipple {
+    opacity: 0.24;
+    transform: none;
+  }
+}

@@ -1,28 +1,18 @@
-import Image from "next/image";
-import bg from "../../public/background/home-background.png";
+import EnchantedForestHero from "@/components/hero/EnchantedForestHero";
 import Navigation from "@/components/navigation";
-import XiaoyueWitch from "@/components/models/XiaoyueWitch";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between relative">
-      <Image
-        priority
-        sizes="100vw"
-        src={bg}
-        alt="background-image"
-        fill
-        className="-z-50 w-full h-full object-cover object-center opacity-50"
-      />
+    <main className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden bg-[#041316]">
+      <EnchantedForestHero />
 
       <div className="w-full h-screen">
         <div className="relative z-30">
           <Navigation />
         </div>
-        <XiaoyueWitch />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 z-10 px-6 text-center sm:bottom-10">
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 z-20 px-6 text-center sm:bottom-10 md:left-10 md:right-auto md:max-w-md md:text-left">
         <p className="text-2xl font-semibold tracking-[0.18em] text-accent sm:text-3xl">
           小悦
         </p>
