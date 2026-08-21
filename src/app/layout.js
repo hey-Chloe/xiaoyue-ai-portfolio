@@ -1,8 +1,13 @@
 import "./globals.css";
 import FireFliesBackground from "@/components/FireFliesBackground";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://xiaoyue-ai-systems.itankg64.chatgpt.site";
+const canonicalUrl = new URL(`${siteUrl.replace(/\/$/, "")}/`);
+
 export const metadata = {
-  metadataBase: new URL("https://xiaoyue-ai-systems.itankg64.chatgpt.site"),
+  metadataBase: canonicalUrl,
   title: {
     template: "%s | 小悦",
     default: "小悦 · AI 应用开发与 Agent 工程",
@@ -10,11 +15,11 @@ export const metadata = {
   description:
     "小悦的 AI 工程作品集：Agent Runtime、企业级 RAG、AI 基础设施与真实业务系统。",
   alternates: {
-    canonical: "/",
+    canonical: canonicalUrl.href,
   },
   openGraph: {
     type: "website",
-    url: "/",
+    url: canonicalUrl,
     locale: "zh_CN",
     title: "小悦 · AI Systems Builder",
     description:
