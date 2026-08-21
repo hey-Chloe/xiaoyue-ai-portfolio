@@ -2,15 +2,26 @@ import "./globals.css";
 import FireFliesBackground from "@/components/FireFliesBackground";
 
 export const metadata = {
+  metadataBase: new URL("https://xiaoyue-ai-systems.itankg64.chatgpt.site"),
   title: {
     template: "%s | 小悦",
     default: "小悦 · AI 应用开发与 Agent 工程",
   },
   description:
     "小悦的 AI 工程作品集：Agent Runtime、企业级 RAG、AI 基础设施与真实业务系统。",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
+    url: "/",
     locale: "zh_CN",
+    title: "小悦 · AI Systems Builder",
+    description:
+      "能检索证据、调用工具、恢复失败，并在真实权限边界中运行的 AI 系统。",
+  },
+  twitter: {
+    card: "summary",
     title: "小悦 · AI Systems Builder",
     description:
       "能检索证据、调用工具、恢复失败，并在真实权限边界中运行的 AI 系统。",
